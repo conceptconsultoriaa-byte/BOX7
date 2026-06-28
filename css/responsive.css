@@ -1,63 +1,148 @@
-/*=====================================
-RESPONSIVO
-======================================*/
+/* =====================================
+   RESPONSIVE.CSS
+   BOX7 MOTO POINT
+===================================== */
 
-@media(max-width:992px){
+/* ---------- Notebook ---------- */
+@media (max-width:1200px){
 
-.hero-grid{
+    .container{
+        width:95%;
+    }
 
-display:flex;
-flex-direction:column;
-
-}
-
-.hero h1{
-
-font-size:42px;
-line-height:48px;
-
-}
-
-nav ul{
-
-display:none;
+    .hero h1{
+        font-size:52px;
+        line-height:60px;
+    }
 
 }
 
+/* ---------- Tablet ---------- */
+@media (max-width:992px){
+
+    header .container{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        text-align:center;
+    }
+
+    .hero-grid,
+    .consultoria-grid,
+    .mentoria-grid,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-numbers{
+        justify-content:center;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .ebooks-grid,
+    .depoimentos-grid{
+        grid-template-columns:1fr;
+    }
+
 }
 
-@media(max-width:768px){
+/* ---------- Celular ---------- */
+@media (max-width:768px){
 
-.container{
+    .hero{
+        padding-top:160px;
+    }
 
-width:95%;
+    .hero h1{
+        font-size:36px;
+        line-height:45px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .titulo-secao h2,
+    .sobre h2,
+    .ebooks h2,
+    .depoimentos h2,
+    .cta-final h2{
+        font-size:32px;
+    }
+
+    .cards,
+    .cards-mentoria{
+        grid-template-columns:1fr;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:100%;
+        display:block;
+        text-align:center;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    nav{
+        display:none;
+    }
 
 }
 
-.hero{
+/* ---------- Celulares pequenos ---------- */
+@media (max-width:480px){
 
-padding:120px 20px;
+    .logo{
+        font-size:24px;
+    }
 
-}
+    .hero h1{
+        font-size:30px;
+        line-height:38px;
+    }
 
-.hero p{
+    .hero p{
+        font-size:16px;
+    }
 
-font-size:18px;
+    .hero-numbers{
+        gap:20px;
+    }
 
-}
+    .hero-numbers h2{
+        font-size:30px;
+    }
 
-.botoes{
+    .card,
+    .ebook-card,
+    .depoimento,
+    .faq-item{
+        padding:25px;
+    }
 
-display:flex;
-flex-direction:column;
+    .cta-final h2{
+        font-size:28px;
+    }
 
-}
-
-.btn-principal,
-.btn-secundario{
-
-text-align:center;
-
-}
+    .cta-final p{
+        font-size:18px;
+    }
 
 }
