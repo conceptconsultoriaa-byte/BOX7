@@ -947,3 +947,342 @@ display:none;
 
 }
 
+/* =======================================================
+   HISTÓRIA BOX7
+======================================================= */
+
+.historia-box7{
+
+background:#0b0b0b;
+padding:120px 0;
+color:#fff;
+
+}
+
+.historia-box7 .subtitulo{
+
+display:inline-block;
+padding:8px 22px;
+border-radius:30px;
+background:#ff6600;
+color:#fff;
+font-weight:bold;
+margin-bottom:25px;
+
+}
+
+.historia-box7 .titulo-secao h2{
+
+font-size:52px;
+line-height:60px;
+margin-bottom:25px;
+color:#fff;
+
+}
+
+.historia-box7 .titulo-secao p{
+
+font-size:22px;
+max-width:900px;
+margin:auto;
+color:#cfcfcf;
+
+}
+
+.historia-grid{
+
+display:grid;
+grid-template-columns:420px 1fr;
+gap:80px;
+align-items:center;
+margin-top:90px;
+
+}
+
+.historia-imagem{
+
+text-align:center;
+
+}
+
+.historia-imagem img{
+
+width:100%;
+max-width:420px;
+border-radius:30px;
+box-shadow:0 30px 60px rgba(0,0,0,.50);
+
+}
+
+.historia-texto h3{
+
+font-size:42px;
+margin-bottom:30px;
+color:#ff8800;
+
+}
+
+.historia-texto p{
+
+font-size:20px;
+line-height:1.9;
+margin-bottom:22px;
+color:#d8d8d8;
+
+}
+
+.numeros-box7{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-top:55px;
+
+}
+
+.numeros-box7 div{
+
+background:#151515;
+padding:30px;
+border-radius:20px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+transition:.35s;
+
+}
+
+.numeros-box7 div:hover{
+
+transform:translateY(-10px);
+border-color:#ff6600;
+
+}
+
+.numeros-box7 h2{
+
+font-size:44px;
+color:#ff8800;
+margin-bottom:10px;
+
+}
+
+.numeros-box7 span{
+
+font-size:17px;
+color:#ddd;
+
+}
+/* =======================================================
+   LINHA DO TEMPO
+======================================================= */
+
+.timeline-box7{
+
+background:#111;
+padding:120px 0;
+color:#fff;
+
+}
+
+.timeline{
+
+max-width:1000px;
+margin:70px auto 0;
+
+}
+
+.timeline-item{
+
+display:grid;
+grid-template-columns:120px 1fr;
+gap:40px;
+margin-bottom:45px;
+align-items:flex-start;
+
+}
+
+.timeline-ano{
+
+background:#ff6600;
+color:#fff;
+font-size:28px;
+font-weight:700;
+padding:18px;
+border-radius:15px;
+text-align:center;
+
+}
+
+.timeline-conteudo{
+
+background:#1b1b1b;
+padding:30px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,.30);
+
+}
+
+.timeline-conteudo h3{
+
+font-size:30px;
+margin-bottom:18px;
+color:#FFD700;
+
+}
+
+.timeline-conteudo p{
+
+font-size:18px;
+line-height:1.8;
+color:#ddd;
+
+}S
+
+/* ==========================================
+AUTORIDADE
+========================================== */
+
+.autoridade-box7{
+
+padding:120px 0;
+background:#0b0b0b;
+color:#fff;
+
+}
+
+.autoridade-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+margin-top:60px;
+
+}
+
+.autoridade-card{
+
+background:#181818;
+padding:35px;
+border-radius:20px;
+transition:.35s;
+border:1px solid #222;
+
+}
+
+.autoridade-card:hover{
+
+transform:translateY(-12px);
+
+border-color:#ff6600;
+
+}
+
+.autoridade-card h3{
+
+font-size:26px;
+margin-bottom:20px;
+color:#FFD700;
+
+}
+
+.autoridade-card p{
+
+font-size:18px;
+line-height:1.8;
+
+color:#ddd;
+
+}
+/* ======================================================
+   TIMELINE PREMIUM
+======================================================*/
+
+.timeline-item{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:70px;
+
+align-items:center;
+
+margin:120px 0;
+
+}
+
+.timeline-image img{
+
+width:100%;
+
+border-radius:22px;
+
+box-shadow:0 30px 60px rgba(0,0,0,.35);
+
+transition:.45s;
+
+}
+
+.timeline-image img:hover{
+
+transform:scale(1.02);
+
+}
+
+.timeline-content h2{
+
+font-size:42px;
+
+margin:20px 0;
+
+color:#FFD700;
+
+}
+
+.timeline-content p{
+
+font-size:20px;
+
+line-height:1.9;
+
+color:#ddd;
+
+margin-bottom:35px;
+
+}
+
+.timeline-content ul{
+
+list-style:none;
+
+padding:0;
+
+}
+
+.timeline-content li{
+
+margin-bottom:18px;
+
+font-size:18px;
+
+}
+
+.timeline-tag{
+
+display:inline-block;
+
+background:#ff6600;
+
+padding:10px 20px;
+
+border-radius:40px;
+
+font-size:14px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+color:#fff;
+
+}
