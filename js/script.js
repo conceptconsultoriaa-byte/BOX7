@@ -121,3 +121,29 @@ document.querySelectorAll("nav a").forEach(link => {
     });
 
 });
+/*==============================
+ Loader
+==============================*/
+
+/*==============================
+ Loader
+==============================*/
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    if(loader){
+
+        loader.classList.add("hide");
+
+        setTimeout(() => {
+            loader.style.display = "none";
+        },800);
+
+    }
+
+});
+
+    
+

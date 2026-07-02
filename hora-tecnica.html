@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BOX7 Hora Técnica PRO™ — Powered by BOX7 Moto Point</title>
+<meta name="description" content="Descubra exatamente quanto sua oficina deve cobrar por hora para obter lucro sustentável.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23111'/%3E%3Ctext x='50' y='62' font-family='Inter,sans-serif' font-size='40' font-weight='900' fill='%23FF7A00' text-anchor='middle'%3E7%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --black: #0A0A0A;
+  --black-soft: #1A1A1A;
+  --orange: #FF7A00;
+  --orange-dark: #E56A00;
+  --orange-light: #FFA94D;
+  --orange-bg: #FFF4EC;
+  --grey-50: #FAFAFA;
+  --grey-100: #F4F4F4;
+  --grey-200: #E5E5E5;
+  --grey-300: #D4D4D4;
+  --grey-500: #737373;
+  --grey-700: #404040;
+  --grey-900: #1F1F1F;
+  --white: #FFFFFF;
+  --red: #DC2626;
+  --yellow: #EAB308;
+  --green: #16A34A;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.08);
+  --shadow-xl: 0 30px 60px rgba(0,0,0,0.12);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
+  min-height: 100vh;
+}
+.serif { font-family: 'Playfair Display', Georgia, serif; }
+
+/* TOP BAR */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--grey-200);
+}
+.topbar-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 14px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: var(--black); color: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 18px;
+}
+.brand-text { font-weight: 800; font-size: 15px; letter-spacing: -0.01em; }
+.brand-sub { font-size: 11px; color: var(--grey-500); font-weight: 500; }
+.topbar-actions { display: flex; gap: 10px; align-items: center; }
+.btn-ghost {
+  background: transparent; border: 1px solid var(--grey-200);
+  padding: 9px 16px; border-radius: 10px; font-size: 13px; font-weight: 600;
+  color: var(--grey-700); cursor: pointer; transition: all 0.2s;
+}
+.btn-ghost:hover { background: var(--grey-50); border-color: var(--grey-300); }
+.btn-primary {
+  background: var(--black); color: var(--white);
+  padding: 9px 18px; border-radius: 10px; font-size: 13px; font-weight: 600;
+  cursor: pointer; border: none; transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--orange); transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  background: linear-gradient(180deg, var(--white) 0%, var(--grey-50) 100%);
+  padding: 64px 28px 48px;
+  text-align: center;
+  border-bottom: 1px solid var(--grey-200);
+}
+.eyebrow {
+  display: inline-block; padding: 6px 14px; border-radius: 999px;
+  background: var(--orange-bg); color: var(--orange-dark);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 900; line-height: 1.05;
+  letter-spacing: -0.02em; max-width: 880px; margin: 0 auto 18px;
+  color: var(--black);
+}
+.hero h1 .accent { color: var(--orange); }
+.hero p.sub {
+  font-size: clamp(16px, 1.4vw, 19px); color: var(--grey-700);
+  max-width: 680px; margin: 0 auto 32px; font-weight: 400;
+}
+.hero-stats {
+  display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
+  margin-top: 28px;
+}
+.hero-stat { text-align: center; }
+.hero-stat-val { font-size: 28px; font-weight: 900; color: var(--black); }
+.hero-stat-val .u { font-size: 14px; color: var(--grey-500); font-weight: 600; }
+.hero-stat-lab { font-size: 11px; color: var(--grey-500); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+
+/* CONTAINER */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+/* STEPPER */
+.stepper {
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  padding: 18px; margin: 48px auto 28px;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+  box-shadow: var(--shadow-sm);
+}
+.step {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 12px 8px; border-radius: 12px; cursor: pointer;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+.step:hover { background: var(--grey-50); }
+.step.active { background: var(--black); color: var(--white); }
+.step.complete .step-num { background: var(--green); color: var(--white); border-color: var(--green); }
+.step-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--white); border: 2px solid var(--grey-300);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 14px; margin-bottom: 6px;
+  transition: all 0.2s;
+}
+.step.active .step-num { background: var(--orange); border-color: var(--orange); color: var(--white); }
+.step-label { font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.step.active .step-label { color: var(--white); }
+.step:not(.active) .step-label { color: var(--grey-700); }
+
+/* CARD STEP */
+.step-card {
+  background: var(--white); border: 1px solid var(--grey-200);
+  border-radius: var(--radius-xl); padding: 40px;
+  box-shadow: var(--shadow-md); margin-bottom: 32px;
+  display: none;
+}
+.step-card.active { display: block; animation: fadeIn 0.35s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.card-head { margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px solid var(--grey-200); }
+.card-tag { display: inline-block; padding: 4px 10px; border-radius: 6px; background: var(--orange-bg); color: var(--orange-dark); font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+.card-title { font-size: 26px; font-weight: 800; letter-spacing: -0.01em; color: var(--black); margin-bottom: 6px; }
+.card-desc { font-size: 14px; color: var(--grey-500); }
+
+.field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.field-grid.full { grid-template-columns: 1fr; }
+.field { display: flex; flex-direction: column; }
+.field label {
+  font-size: 12px; font-weight: 700; color: var(--grey-700);
+  margin-bottom: 7px; letter-spacing: 0.02em;
+}
+.field label .hint { font-weight: 400; color: var(--grey-500); margin-left: 4px; }
+.field-wrap {
+  position: relative; display: flex; align-items: center;
+  background: var(--grey-50); border: 1.5px solid var(--grey-200);
+  border-radius: 12px; transition: all 0.2s;
+}
+.field-wrap:focus-within { border-color: var(--orange); background: var(--white); box-shadow: 0 0 0 4px rgba(255,122,0,0.08); }
+.field-wrap .prefix, .field-wrap .suffix {
+  padding: 0 14px; font-size: 14px; font-weight: 600; color: var(--grey-500);
+}
+.field input {
+  flex: 1; border: none; background: transparent;
+  padding: 14px 14px 14px 4px;
+  font-size: 15px; font-weight: 600; color: var(--black);
+  font-family: inherit; outline: none;
+}
+.field input::placeholder { color: var(--grey-300); font-weight: 500; }
+.field-wrap .prefix + input { padding-left: 0; }
+
+/* SUBSECTION */
+.subhead { margin-top: 28px; margin-bottom: 14px; }
+.subhead-title { font-size: 14px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--grey-700); display: flex; align-items: center; gap: 8px; }
+.subhead-title::before { content: ''; width: 18px; height: 2px; background: var(--orange); border-radius: 2px; }
+
+/* NAV */
+.step-nav { display: flex; justify-content: space-between; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--grey-200); }
+.btn-next {
+  background: var(--orange); color: var(--white);
+  padding: 14px 26px; border-radius: 12px;
+  font-size: 14px; font-weight: 700; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 10px;
+  transition: all 0.2s;
+}
+.btn-next:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-back {
+  background: var(--white); color: var(--grey-700);
+  padding: 14px 22px; border-radius: 12px;
+  font-size: 14px; font-weight: 600; border: 1.5px solid var(--grey-200); cursor: pointer;
+}
+.btn-back:hover { background: var(--grey-50); }
+
+/* SUMMARY (LATERAL) */
+.layout {
+  display: grid; grid-template-columns: 1fr 340px; gap: 28px;
+  align-items: flex-start; margin-top: 32px;
+}
+.sticky-summary { position: sticky; top: 88px; }
+.summary-card {
+  background: linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
+  color: var(--white); border-radius: var(--radius-lg);
+  padding: 28px; box-shadow: var(--shadow-xl);
+}
+.summary-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+.summary-title { font-size: 17px; font-weight: 800; margin-top: 4px; margin-bottom: 22px; }
+.summary-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 13px;
+}
+.summary-row .l { color: rgba(255,255,255,0.65); }
+.summary-row .v { font-weight: 700; color: var(--white); font-variant-numeric: tabular-nums; }
+.summary-hero {
+  margin-top: 22px; padding: 22px; border-radius: 16px;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+  text-align: center;
+}
+.summary-hero-lab { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.85); }
+.summary-hero-val { font-size: 36px; font-weight: 900; margin-top: 4px; letter-spacing: -0.02em; }
+.summary-hero-sub { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+
+/* RESULT (STEP 6) */
+.result-hero {
+  background: linear-gradient(135deg, var(--black) 0%, var(--black-soft) 100%);
+  color: var(--white); border-radius: var(--radius-xl);
+  padding: 56px 44px; text-align: center; margin-bottom: 28px;
+  position: relative; overflow: hidden;
+}
+.result-hero::before {
+  content: ''; position: absolute; top: -50%; right: -20%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(255,122,0,0.15) 0%, transparent 60%);
+}
+.result-hero-lab { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); position: relative; }
+.result-hero-val {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(56px, 8vw, 92px); font-weight: 900;
+  margin: 14px 0 8px; letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--white) 0%, var(--orange-light) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+.result-hero-sub { font-size: 15px; color: rgba(255,255,255,0.75); position: relative; }
+
+.kpi-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  margin-bottom: 32px;
+}
+.kpi {
+  background: var(--white); border: 1px solid var(--grey-200);
+  border-radius: var(--radius-md); padding: 22px;
+}
+.kpi-lab { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-500); margin-bottom: 8px; }
+.kpi-val { font-size: 24px; font-weight: 800; color: var(--black); letter-spacing: -0.01em; }
+.kpi-val .u { font-size: 12px; color: var(--grey-500); font-weight: 600; }
+.kpi-delta { font-size: 11px; color: var(--green); font-weight: 700; margin-top: 4px; }
+.kpi-delta.warn { color: var(--yellow); }
+.kpi-delta.bad { color: var(--red); }
+
+.analysis-card {
+  background: var(--white); border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg); padding: 36px; margin-bottom: 28px;
+}
+.analysis-head { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.analysis-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--orange-bg); display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.analysis-title { font-size: 22px; font-weight: 800; }
+.analysis-sub { font-size: 13px; color: var(--grey-500); }
+
+.insight {
+  display: grid; grid-template-columns: 50px 1fr; gap: 14px;
+  padding: 18px 0; border-bottom: 1px solid var(--grey-100);
+}
+.insight:last-child { border-bottom: none; }
+.insight-num {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--orange); color: var(--white);
+  font-weight: 800; font-size: 15px;
+  display: flex; align-items: center; justify-content: center;
+}
+.insight-body h4 { font-size: 15px; font-weight: 800; margin-bottom: 4px; color: var(--black); }
+.insight-body p { font-size: 13.5px; color: var(--grey-700); line-height: 1.6; }
+
+.scenarios-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.scenario {
+  background: var(--white); border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg); padding: 24px;
+  position: relative;
+}
+.scenario.recommended { border: 2px solid var(--orange); box-shadow: var(--shadow-md); }
+.scenario.recommended::before {
+  content: 'RECOMENDADO'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  background: var(--orange); color: var(--white);
+  padding: 4px 12px; border-radius: 999px;
+  font-size: 9.5px; font-weight: 800; letter-spacing: 0.1em;
+}
+.scenario-lab { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-500); }
+.scenario-val { font-size: 32px; font-weight: 900; margin: 8px 0; letter-spacing: -0.02em; color: var(--black); }
+.scenario-margin { font-size: 12px; color: var(--grey-700); font-weight: 600; }
+.scenario-desc { font-size: 12.5px; color: var(--grey-500); margin-top: 10px; line-height: 1.5; }
+
+.actions-row { display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap; justify-content: center; }
+.btn-action {
+  padding: 14px 22px; border-radius: 12px; font-size: 13px; font-weight: 700;
+  cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s;
+}
+.btn-action.dark { background: var(--black); color: var(--white); }
+.btn-action.dark:hover { background: var(--orange); }
+.btn-action.outline { background: var(--white); color: var(--black); border: 1.5px solid var(--grey-200); }
+.btn-action.outline:hover { border-color: var(--black); }
+
+/* FOOTER */
+.footer {
+  background: var(--black); color: rgba(255,255,255,0.7);
+  padding: 48px 28px 28px; margin-top: 64px;
+}
+.footer-inner { max-width: 1180px; margin: 0 auto; text-align: center; }
+.footer-brand { color: var(--white); font-weight: 800; font-size: 16px; margin-bottom: 8px; }
+.footer-tag { font-size: 12px; color: var(--orange); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+.footer-text { font-size: 12.5px; margin-top: 16px; }
+
+/* RESPONSIVE */
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; }
+  .sticky-summary { position: static; }
+  .field-grid { grid-template-columns: 1fr; }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .scenarios-grid { grid-template-columns: 1fr; }
+  .stepper { grid-template-columns: repeat(5, 1fr); gap: 4px; padding: 12px; }
+  .step-label { font-size: 9px; }
+  .step-card { padding: 24px; }
+}
+@media print {
+  .topbar, .footer, .step-nav, .stepper, .actions-row { display: none !important; }
+  .step-card { box-shadow: none; border: none; display: block !important; page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-logo">7</div>
+      <div>
+        <div class="brand-text">BOX7 Hora Técnica PRO™</div>
+        <div class="brand-sub">Powered by BOX7 Moto Point</div>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn-ghost" onclick="resetAll()">↻ Reiniciar</button>
+      <button class="btn-primary" onclick="window.print()">⤓ Exportar</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="eyebrow">BOX7 Professional Tools™ · Ferramenta Nº 1</span>
+  <h1>Quanto sua oficina deve <span class="accent">cobrar por hora</span><br>para ter lucro de verdade?</h1>
+  <p class="sub">A calculadora estratégica que transforma dados operacionais em uma decisão de preço fundamentada, premium e sustentável. Sem achismo. Sem perda de margem.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-val">5 <span class="u">etapas</span></div>
+      <div class="hero-stat-lab">Fluxo guiado</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">~7 <span class="u">min</span></div>
+      <div class="hero-stat-lab">Para concluir</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-val">3 <span class="u">cenários</span></div>
+      <div class="hero-stat-lab">Conservador · Ideal · Premium</div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- STEPPER -->
+  <div class="stepper" id="stepper">
+    <div class="step active" data-step="1"><div class="step-num">1</div><div class="step-label">Custos Fixos</div></div>
+    <div class="step" data-step="2"><div class="step-num">2</div><div class="step-label">Equipe</div></div>
+    <div class="step" data-step="3"><div class="step-num">3</div><div class="step-label">Infraestrutura</div></div>
+    <div class="step" data-step="4"><div class="step-num">4</div><div class="step-label">Produção</div></div>
+    <div class="step" data-step="5"><div class="step-num">5</div><div class="step-label">Margem</div></div>
+  </div>
+
+  <div class="layout">
+    <!-- MAIN -->
+    <div>
+
+      <!-- STEP 1: CUSTOS FIXOS -->
+      <div class="step-card active" data-card="1">
+        <div class="card-head">
+          <span class="card-tag">Etapa 1 de 5</span>
+          <div class="card-title">Custos Fixos Mensais</div>
+          <div class="card-desc">Tudo o que sua oficina paga todo mês, independentemente do volume de serviços executados.</div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Aluguel ou financiamento <span class="hint">(imóvel)</span></label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_aluguel" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Energia elétrica</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_energia" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Água e esgoto</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_agua" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Internet e telefonia</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_internet" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Contabilidade</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_contab" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Impostos fixos (simples / alvará)</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_impostos" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Software, ERP, sistemas</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_software" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Marketing e divulgação</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_mkt" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Seguros (predial / equipamentos)</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_seguros" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Outros custos fixos</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="f_outros" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <span></span>
+          <button class="btn-next" onclick="go(2)">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- STEP 2: EQUIPE -->
+      <div class="step-card" data-card="2">
+        <div class="card-head">
+          <span class="card-tag">Etapa 2 de 5</span>
+          <div class="card-title">Custo Total da Equipe Técnica</div>
+          <div class="card-desc">Inclua todos os mecânicos, auxiliares e o seu próprio pró-labore (se aplicável).</div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Nº de mecânicos / técnicos</label>
+            <div class="field-wrap"><input type="number" id="e_qtd" placeholder="0" oninput="recalc()"><span class="suffix">pessoas</span></div>
+          </div>
+          <div class="field">
+            <label>Salário médio mensal (por técnico)</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="e_salario" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Encargos sobre salário <span class="hint">(% — INSS, FGTS, férias, 13º)</span></label>
+            <div class="field-wrap"><input type="number" id="e_encargos" placeholder="70" value="70" oninput="recalc()"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label>Benefícios totais <span class="hint">(VT, VR, plano de saúde)</span></label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="e_beneficios" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Pró-labore do gestor</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="e_prolabore" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Treinamento e capacitação <span class="hint">(mensal)</span></label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="e_treino" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="go(1)">← Voltar</button>
+          <button class="btn-next" onclick="go(3)">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: INFRAESTRUTURA -->
+      <div class="step-card" data-card="3">
+        <div class="card-head">
+          <span class="card-tag">Etapa 3 de 5</span>
+          <div class="card-title">Infraestrutura & Depreciação</div>
+          <div class="card-desc">Investimento em equipamentos, ferramentas, manutenção e o impacto da depreciação no custo da hora.</div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Investimento total em equipamentos</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="i_invest" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Vida útil média (anos)</label>
+            <div class="field-wrap"><input type="number" id="i_vida" placeholder="5" value="5" oninput="recalc()"><span class="suffix">anos</span></div>
+          </div>
+          <div class="field">
+            <label>Manutenção mensal de equipamentos</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="i_manut" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Ferramentas e consumíveis</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="i_ferr" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Limpeza, EPI, uniformes</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="i_limp" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+          <div class="field">
+            <label>Descarte de resíduos / óleo</label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="i_descarte" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="go(2)">← Voltar</button>
+          <button class="btn-next" onclick="go(4)">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: PRODUÇÃO -->
+      <div class="step-card" data-card="4">
+        <div class="card-head">
+          <span class="card-tag">Etapa 4 de 5</span>
+          <div class="card-title">Capacidade Produtiva</div>
+          <div class="card-desc">Quantas horas tecnicamente produtivas (faturáveis) sua oficina gera por mês.</div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Dias úteis trabalhados <span class="hint">(por mês)</span></label>
+            <div class="field-wrap"><input type="number" id="p_dias" placeholder="22" value="22" oninput="recalc()"><span class="suffix">dias</span></div>
+          </div>
+          <div class="field">
+            <label>Horas trabalhadas <span class="hint">(por dia, por técnico)</span></label>
+            <div class="field-wrap"><input type="number" id="p_horas" placeholder="8" value="8" oninput="recalc()"><span class="suffix">h</span></div>
+          </div>
+          <div class="field">
+            <label>Eficiência produtiva real <span class="hint">(% efetivamente faturável)</span></label>
+            <div class="field-wrap"><input type="number" id="p_efic" placeholder="70" value="70" oninput="recalc()"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label>Faturamento esperado <span class="hint">(opcional — para checagem)</span></label>
+            <div class="field-wrap"><span class="prefix">R$</span><input type="number" id="p_fatur" placeholder="0,00" oninput="recalc()"></div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="go(3)">← Voltar</button>
+          <button class="btn-next" onclick="go(5)">Continuar →</button>
+        </div>
+      </div>
+
+      <!-- STEP 5: MARGEM -->
+      <div class="step-card" data-card="5">
+        <div class="card-head">
+          <span class="card-tag">Etapa 5 de 5</span>
+          <div class="card-title">Margem & Posicionamento</div>
+          <div class="card-desc">Defina o lucro líquido que você deseja extrair de cada hora técnica vendida.</div>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Margem de lucro desejada</label>
+            <div class="field-wrap"><input type="number" id="m_margem" placeholder="30" value="30" oninput="recalc()"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label>Carga tributária sobre venda <span class="hint">(Simples / ISS)</span></label>
+            <div class="field-wrap"><input type="number" id="m_impostos" placeholder="10" value="10" oninput="recalc()"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label>Comissão sobre serviços <span class="hint">(% pago ao técnico)</span></label>
+            <div class="field-wrap"><input type="number" id="m_comissao" placeholder="0" value="0" oninput="recalc()"><span class="suffix">%</span></div>
+          </div>
+          <div class="field">
+            <label>Reserva técnica <span class="hint">(% para imprevistos)</span></label>
+            <div class="field-wrap"><input type="number" id="m_reserva" placeholder="5" value="5" oninput="recalc()"><span class="suffix">%</span></div>
+          </div>
+        </div>
+        <div class="step-nav">
+          <button class="btn-back" onclick="go(4)">← Voltar</button>
+          <button class="btn-next" onclick="showResult()">Calcular Resultado →</button>
+        </div>
+      </div>
+
+      <!-- STEP 6: RESULTADO -->
+      <div class="step-card" data-card="6">
+        <div class="result-hero">
+          <div class="result-hero-lab">Sua hora técnica ideal</div>
+          <div class="result-hero-val" id="r_hora_ideal">R$ 0,00</div>
+          <div class="result-hero-sub">com a margem de lucro líquida que você definiu</div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-lab">Custo total mensal</div>
+            <div class="kpi-val" id="r_custo_total">R$ 0</div>
+            <div class="kpi-delta" id="r_custo_delta">Fixos + Equipe + Infra</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-lab">Horas faturáveis / mês</div>
+            <div class="kpi-val" id="r_horas">0 <span class="u">h</span></div>
+            <div class="kpi-delta" id="r_horas_delta">Capacidade líquida</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-lab">Custo da hora técnica</div>
+            <div class="kpi-val" id="r_custo_hora">R$ 0</div>
+            <div class="kpi-delta">Ponto de equilíbrio</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-lab">Lucro líquido / hora</div>
+            <div class="kpi-val" id="r_lucro">R$ 0</div>
+            <div class="kpi-delta">Após margem aplicada</div>
+          </div>
+        </div>
+
+        <div class="analysis-card">
+          <div class="analysis-head">
+            <div class="analysis-icon">⚡</div>
+            <div>
+              <div class="analysis-title">Análise Inteligente BOX7™</div>
+              <div class="analysis-sub">Diagnóstico estratégico baseado nos seus números</div>
+            </div>
+          </div>
+          <div id="insights"></div>
+        </div>
+
+        <h3 style="font-size:18px;font-weight:800;margin:8px 0 16px;letter-spacing:-0.01em;">Cenários estratégicos de precificação</h3>
+        <div class="scenarios-grid">
+          <div class="scenario">
+            <div class="scenario-lab">Conservador</div>
+            <div class="scenario-val" id="s_cons">R$ 0</div>
+            <div class="scenario-margin">Margem ~15% líquida</div>
+            <div class="scenario-desc">Mercado regional comum. Volume alto, percepção média de valor.</div>
+          </div>
+          <div class="scenario recommended">
+            <div class="scenario-lab">Ideal BOX7™</div>
+            <div class="scenario-val" id="s_ideal">R$ 0</div>
+            <div class="scenario-margin">Margem desejada definida</div>
+            <div class="scenario-desc">Equilíbrio entre rentabilidade e competitividade. O preço justo para uma oficina profissional.</div>
+          </div>
+          <div class="scenario">
+            <div class="scenario-lab">Premium</div>
+            <div class="scenario-val" id="s_prem">R$ 0</div>
+            <div class="scenario-margin">Margem +50% sobre ideal</div>
+            <div class="scenario-desc">Especialização técnica, recepção premium, autoridade da marca. Cliente paga pela experiência.</div>
+          </div>
+        </div>
+
+        <div class="actions-row">
+          <button class="btn-action dark" onclick="window.print()">⤓ Exportar PDF</button>
+          <button class="btn-action outline" onclick="go(1)">↻ Refazer simulação</button>
+          <button class="btn-action outline" onclick="copyShare()">⎘ Copiar resumo</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- LATERAL -->
+    <aside class="sticky-summary">
+      <div class="summary-card">
+        <div class="summary-tag">Resumo em tempo real</div>
+        <div class="summary-title">BOX7 Score Financeiro</div>
+        <div class="summary-row"><span class="l">Custos fixos</span><span class="v" id="sum_fixos">R$ 0</span></div>
+        <div class="summary-row"><span class="l">Equipe (com encargos)</span><span class="v" id="sum_equipe">R$ 0</span></div>
+        <div class="summary-row"><span class="l">Infraestrutura</span><span class="v" id="sum_infra">R$ 0</span></div>
+        <div class="summary-row"><span class="l">Custo total mês</span><span class="v" id="sum_total">R$ 0</span></div>
+        <div class="summary-row"><span class="l">Horas faturáveis</span><span class="v" id="sum_horas">0 h</span></div>
+        <div class="summary-hero">
+          <div class="summary-hero-lab">Hora técnica ideal</div>
+          <div class="summary-hero-val" id="sum_hora">R$ 0</div>
+          <div class="summary-hero-sub">com margem definida</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">BOX7 Hora Técnica PRO™</div>
+    <div class="footer-tag">BOX7 Professional Tools™</div>
+    <div class="footer-text">
+      © BOX7 Moto Point · Tadeu Rodrigues · Todos os direitos reservados.<br>
+      Esta ferramenta integra a suíte BOX7 Professional Tools™ — ecossistema de aplicações estratégicas para a oficina motociclística profissional.
+    </div>
+  </div>
+</footer>
+
+<script>
+function n(id){ return parseFloat(document.getElementById(id).value) || 0; }
+function fmt(v){ return v.toLocaleString('pt-BR', {style:'currency', currency:'BRL', minimumFractionDigits:2}); }
+function fmtN(v){ return v.toLocaleString('pt-BR', {maximumFractionDigits:0}); }
+
+function calc(){
+  // FIXOS
+  const fixos = n('f_aluguel')+n('f_energia')+n('f_agua')+n('f_internet')+n('f_contab')+n('f_impostos')+n('f_software')+n('f_mkt')+n('f_seguros')+n('f_outros');
+  // EQUIPE
+  const qtd = n('e_qtd');
+  const salario = n('e_salario');
+  const encargos = n('e_encargos')/100;
+  const custoTec = qtd * (salario * (1+encargos)) + n('e_beneficios') + n('e_treino');
+  const equipe = custoTec + n('e_prolabore');
+  // INFRA
+  const depreciacao = n('i_invest') / (Math.max(1,n('i_vida'))*12);
+  const infra = depreciacao + n('i_manut') + n('i_ferr') + n('i_limp') + n('i_descarte');
+  const total = fixos + equipe + infra;
+  // PRODUÇÃO
+  const horasBrutas = n('p_dias') * n('p_horas') * Math.max(1, qtd);
+  const efic = n('p_efic')/100;
+  const horas = horasBrutas * efic;
+  // MARGEM
+  const margem = n('m_margem')/100;
+  const imp = n('m_impostos')/100;
+  const com = n('m_comissao')/100;
+  const reserva = n('m_reserva')/100;
+
+  const custoHora = horas > 0 ? total/horas : 0;
+  // Preço ideal: custoHora / (1 - margem - imp - com - reserva)
+  const divisor = Math.max(0.01, 1 - margem - imp - com - reserva);
+  const horaIdeal = custoHora / divisor;
+  const lucroHora = horaIdeal - custoHora - (horaIdeal*(imp+com+reserva));
+
+  // CENÁRIOS
+  const cons = custoHora / Math.max(0.01, 1 - 0.15 - imp - com - reserva);
+  const prem = custoHora / Math.max(0.01, 1 - (margem*1.5) - imp - com - reserva);
+
+  return {fixos, equipe, infra, total, horas, custoHora, horaIdeal, lucroHora, cons, prem, margem, qtd, salario};
+}
+
+function recalc(){
+  const d = calc();
+  document.getElementById('sum_fixos').textContent = fmt(d.fixos);
+  document.getElementById('sum_equipe').textContent = fmt(d.equipe);
+  document.getElementById('sum_infra').textContent = fmt(d.infra);
+  document.getElementById('sum_total').textContent = fmt(d.total);
+  document.getElementById('sum_horas').textContent = fmtN(d.horas) + ' h';
+  document.getElementById('sum_hora').textContent = fmt(d.horaIdeal);
+
+  document.getElementById('r_hora_ideal').textContent = fmt(d.horaIdeal);
+  document.getElementById('r_custo_total').textContent = fmt(d.total);
+  document.getElementById('r_horas').innerHTML = fmtN(d.horas) + ' <span class="u">h</span>';
+  document.getElementById('r_custo_hora').textContent = fmt(d.custoHora);
+  document.getElementById('r_lucro').textContent = fmt(d.lucroHora);
+  document.getElementById('s_cons').textContent = fmt(d.cons);
+  document.getElementById('s_ideal').textContent = fmt(d.horaIdeal);
+  document.getElementById('s_prem').textContent = fmt(d.prem);
+
+  buildInsights(d);
+}
+
+function buildInsights(d){
+  const ins = [];
+  // 1. Análise de equilíbrio
+  if (d.custoHora === 0){
+    ins.push({n:1, t:'Aguardando dados', d:'Preencha os campos das etapas anteriores para ativar a análise inteligente. Quanto mais preciso o seu input, mais estratégica a recomendação.'});
+  } else {
+    const pctEquipe = d.total > 0 ? (d.equipe/d.total*100).toFixed(0) : 0;
+    const pctFixos = d.total > 0 ? (d.fixos/d.total*100).toFixed(0) : 0;
+    ins.push({n:1, t:'Composição do custo total', d:`Sua equipe representa ${pctEquipe}% do custo mensal, enquanto os fixos consomem ${pctFixos}%. ${pctEquipe>60?'Atenção: equipe acima de 60% indica baixa produtividade ou estrutura enxuta sob pressão.':'Composição saudável.'}`});
+
+    // 2. Diagnóstico do preço
+    let diag = '';
+    if (d.horaIdeal < 100) diag = 'Seu preço-alvo está abaixo da média de mercado para oficinas profissionais. Reavalie eficiência produtiva e margem.';
+    else if (d.horaIdeal < 180) diag = 'Você está na faixa de oficinas profissionais convencionais. Há espaço para subir o ticket via posicionamento.';
+    else if (d.horaIdeal < 280) diag = 'Faixa premium — compatível com oficinas especializadas e bem posicionadas.';
+    else diag = 'Faixa de autoridade — cliente paga pela experiência. Garanta consistência de entrega e atendimento.';
+    ins.push({n:2, t:'Posicionamento de mercado', d:diag});
+
+    // 3. Eficiência
+    const efic = n('p_efic');
+    if (efic < 60) ins.push({n:3, t:'Eficiência produtiva crítica', d:`Apenas ${efic}% das horas pagas geram receita. Cada ponto percentual recuperado pode reduzir sua hora técnica em 1-2%. Foque em fluxo de bancada e tempos padrão.`});
+    else if (efic < 75) ins.push({n:3, t:'Eficiência abaixo do ideal BOX7™', d:`${efic}% de eficiência é o piso aceitável. O padrão BOX7™ recomenda atingir 80-85% via Método BOX7 de organização produtiva.`});
+    else ins.push({n:3, t:'Eficiência produtiva saudável', d:`${efic}% de eficiência é excelente. Você está extraindo bem da sua capacidade instalada.`});
+
+    // 4. Recomendação estratégica
+    ins.push({n:4, t:'Recomendação estratégica BOX7™', d:`Adote o cenário "Ideal BOX7™" (${fmt(d.horaIdeal)}/h) como hora oficial. Apresente o cenário Premium (${fmt(d.prem)}/h) em serviços especializados (suspensão, motor, diagnóstico avançado). Use o conservador apenas para serviços de alto giro e baixa complexidade.`});
+  }
+  document.getElementById('insights').innerHTML = ins.map(i =>
+    `<div class="insight"><div class="insight-num">${i.n}</div><div class="insight-body"><h4>${i.t}</h4><p>${i.d}</p></div></div>`
+  ).join('');
+}
+
+function go(step){
+  document.querySelectorAll('.step-card').forEach(c => c.classList.remove('active'));
+  document.querySelector(`[data-card="${step}"]`).classList.add('active');
+  document.querySelectorAll('#stepper .step').forEach((s,i) => {
+    s.classList.remove('active');
+    if (i+1 < step) s.classList.add('complete');
+    else s.classList.remove('complete');
+    if (i+1 === step) s.classList.add('active');
+  });
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  recalc();
+}
+function showResult(){
+  document.querySelectorAll('.step-card').forEach(c => c.classList.remove('active'));
+  document.querySelector(`[data-card="6"]`).classList.add('active');
+  document.querySelectorAll('#stepper .step').forEach(s => s.classList.add('complete'));
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  recalc();
+}
+function resetAll(){
+  if (!confirm('Limpar todos os campos e reiniciar a simulação?')) return;
+  document.querySelectorAll('input').forEach(i => { i.value = ''; });
+  document.getElementById('e_encargos').value = 70;
+  document.getElementById('i_vida').value = 5;
+  document.getElementById('p_dias').value = 22;
+  document.getElementById('p_horas').value = 8;
+  document.getElementById('p_efic').value = 70;
+  document.getElementById('m_margem').value = 30;
+  document.getElementById('m_impostos').value = 10;
+  document.getElementById('m_comissao').value = 0;
+  document.getElementById('m_reserva').value = 5;
+  go(1);
+}
+function copyShare(){
+  const d = calc();
+  const txt = `BOX7 Hora Técnica PRO™ — Resultado\n\nHora técnica ideal: ${fmt(d.horaIdeal)}\nCusto da hora: ${fmt(d.custoHora)}\nLucro/hora: ${fmt(d.lucroHora)}\nHoras faturáveis/mês: ${fmtN(d.horas)} h\nCusto total/mês: ${fmt(d.total)}\n\nCenários: Conservador ${fmt(d.cons)} · Ideal ${fmt(d.horaIdeal)} · Premium ${fmt(d.prem)}\n\nCalculado em BOX7 Hora Técnica PRO™ · Powered by BOX7 Moto Point`;
+  navigator.clipboard.writeText(txt).then(() => alert('Resumo copiado para a área de transferência!'));
+}
+recalc();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,193 +1,990 @@
-/* =====================================
-   RESPONSIVE.CSS
+/* ======================================================
    BOX7 MOTO POINT
-===================================== */
+   RESPONSIVE.CSS PREMIUM
+   Versão 2.0
+====================================================== */
 
-/* ---------- Notebook ---------- */
+
+/* ======================================================
+   NOTEBOOKS
+====================================================== */
+
 @media (max-width:1200px){
 
-    .container{
-        width:95%;
-    }
+.container{
 
-    .hero h1{
-        font-size:52px;
-        line-height:60px;
-    }
+    width:94%;
 
 }
 
-/* ---------- Tablet ---------- */
-@media (max-width:992px){
+.hero h1{
 
-    header .container{
-        flex-direction:column;
-        gap:20px;
-    }
-
-    nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .hero{
-        text-align:center;
-    }
-
-    .hero-grid,
-    .consultoria-grid,
-    .mentoria-grid,
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-    }
-
-    .hero-numbers{
-        justify-content:center;
-    }
-
-    .cards{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .ebooks-grid,
-    .depoimentos-grid{
-        grid-template-columns:1fr;
-    }
+    font-size:54px;
+    line-height:62px;
 
 }
 
-/* ---------- Celular ---------- */
+.hero-grid,
+.start-box,
+.consultoria-grid,
+.mentoria-grid,
+.historia-grid,
+.exp-item{
+
+    gap:50px;
+
+}
+
+.hero-image img{
+
+    max-width:540px;
+
+}
+
+}
+
+
+/* ======================================================
+   TABLETS
+====================================================== */
+
+@media (max-width:1024px){
+
+.container{
+
+    width:92%;
+
+}
+
+header .container{
+
+    flex-direction:column;
+    gap:20px;
+
+}
+
+nav ul{
+
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+
+}
+
+.hero{
+
+    text-align:center;
+    padding-top:150px;
+
+}
+
+.hero-grid{
+
+    grid-template-columns:1fr;
+    gap:50px;
+
+}
+
+.hero-image{
+
+    order:-1;
+
+}
+
+.hero-image img{
+
+    width:90%;
+    max-width:520px;
+    margin:auto;
+
+}
+
+.hero-buttons{
+
+    justify-content:center;
+
+}
+
+.hero-numbers{
+
+    justify-content:center;
+
+}
+
+.start-box,
+.consultoria-grid,
+.mentoria-grid,
+.historia-grid,
+.exp-item,
+.timeline-item,
+.footer-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.cards{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.ebooks-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.tools-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.autoridade-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.certificados-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.numeros-box7{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.lead-beneficios{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+
+/* ======================================================
+   MENU MOBILE
+====================================================== */
+
 @media (max-width:768px){
 
-    .hero{
-        padding-top:160px;
-    }
+.menu-toggle{
 
-    .hero h1{
-        font-size:36px;
-        line-height:45px;
-    }
-
-    .hero p{
-        font-size:18px;
-    }
-
-    .titulo-secao h2,
-    .sobre h2,
-    .ebooks h2,
-    .depoimentos h2,
-    .cta-final h2{
-        font-size:32px;
-    }
-
-    .cards,
-    .cards-mentoria{
-        grid-template-columns:1fr;
-    }
-
-    .btn-primary,
-    .btn-secondary{
-        width:100%;
-        display:block;
-        text-align:center;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    nav{
-        display:none;
-    }
+    display:block;
 
 }
 
-/* ---------- Celulares pequenos ---------- */
-@media (max-width:480px){
+nav{
 
-    .logo{
-        font-size:24px;
-    }
-
-    .hero h1{
-        font-size:30px;
-        line-height:38px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    .hero-numbers{
-        gap:20px;
-    }
-
-    .hero-numbers h2{
-        font-size:30px;
-    }
-
-    .card,
-    .ebook-card,
-    .depoimento,
-    .faq-item{
-        padding:25px;
-    }
-
-    .cta-final h2{
-        font-size:28px;
-    }
-
-    .cta-final p{
-        font-size:18px;
-    }
+    position:absolute;
+    top:90px;
+    left:0;
+    width:100%;
+    background:#111;
+    display:none;
+    padding:25px 0;
+    border-top:1px solid rgba(255,255,255,.08);
 
 }
+
+nav.active{
+
+    display:block;
+
+}
+
+nav ul{
+
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
+
+}
+
+.btn-menu{
+
+    display:none;
+
+}
+
+header .container{
+
+    justify-content:space-between;
+    align-items:center;
+    flex-direction:row;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+}
+
+}
+/* ======================================================
+   HERO + BOX7 START + HISTÓRIA
+====================================================== */
+
+@media (max-width:768px){
+
+.hero{
+
+    padding:140px 0 70px;
+
+}
+
+.hero h1{
+
+    font-size:38px;
+    line-height:46px;
+    text-align:center;
+
+}
+
+.hero h4{
+
+    text-align:center;
+    font-size:15px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+    line-height:1.8;
+    text-align:center;
+
+}
+
+.hero-grid{
+
+    grid-template-columns:1fr;
+    gap:40px;
+
+}
+
+.hero-image{
+
+    order:-1;
+    text-align:center;
+
+}
+
+.hero-image img{
+
+    width:90%;
+    max-width:330px;
+    margin:auto;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+
+}
+
+.hero-buttons a{
+
+    width:100%;
+    max-width:320px;
+    text-align:center;
+
+}
+
+.hero-numbers{
+
+    justify-content:center;
+    gap:20px;
+
+}
+
+.hero-numbers h2{
+
+    font-size:34px;
+
+}
+
 /* ==========================
-   MENU MOBILE
+   BOX7 START
 ========================== */
 
+.start-box{
+
+    grid-template-columns:1fr;
+    gap:35px;
+    text-align:center;
+
+}
+
+.start-image{
+
+    order:-1;
+
+}
+
+.start-image img{
+
+    width:85%;
+    max-width:260px;
+    margin:auto;
+
+}
+
+.start-info h3{
+
+    font-size:28px;
+
+}
+
+.start-info p{
+
+    font-size:18px;
+    line-height:1.8;
+
+}
+
+.start-info li{
+
+    font-size:17px;
+    text-align:left;
+
+}
+
+/* ==========================
+   HISTÓRIA
+========================== */
+
+.historia-grid{
+
+    grid-template-columns:1fr;
+    gap:45px;
+    text-align:center;
+
+}
+
+.historia-imagem img{
+
+    max-width:320px;
+    margin:auto;
+
+}
+
+.historia-texto h3{
+
+    font-size:34px;
+
+}
+
+.historia-texto p{
+
+    font-size:18px;
+
+}
+
+.numeros-box7{
+
+    grid-template-columns:1fr;
+    gap:20px;
+
+}
+
+/* ==========================
+   TIMELINE
+========================== */
+
+.timeline-item{
+
+    grid-template-columns:1fr;
+    gap:25px;
+
+}
+
+.timeline-ano{
+
+    width:120px;
+    margin:auto;
+
+}
+
+.timeline-content h2,
+.timeline-content h3{
+
+    font-size:30px;
+
+}
+
+.timeline-content p{
+
+    font-size:18px;
+
+}
+
+/* ==========================
+   EXPERIÊNCIA
+========================== */
+
+.exp-item{
+
+    grid-template-columns:1fr;
+    gap:40px;
+
+}
+
+.exp-image{
+
+    order:-1;
+
+}
+
+.exp-image img{
+
+    max-width:340px;
+    margin:auto;
+
+}
+
+.exp-text{
+
+    text-align:center;
+
+}
+
+.exp-text h2{
+
+    font-size:36px;
+
+}
+
+.exp-text p{
+
+    font-size:18px;
+
+}
+
+.exp-text ul{
+
+    text-align:left;
+
+}
+
+}
+/* ======================================================
+   TRILOGIA • BIBLIOTECA • BOX7 LAB
+====================================================== */
+
 @media (max-width:768px){
 
-    .menu-toggle{
+/* -----------------------------
+   TÍTULOS
+------------------------------*/
 
-        display:block;
+.titulo-secao{
 
-    }
+    margin-bottom:45px;
+    text-align:center;
 
-    nav{
+}
 
-        position:absolute;
-        top:85px;
-        left:0;
-        width:100%;
-        background:#111;
-        display:none;
-        padding:20px 0;
+.titulo-secao h2{
 
-    }
+    font-size:34px;
+    line-height:42px;
 
-    nav.active{
+}
 
-        display:block;
+.titulo-secao p{
 
-    }
+    font-size:17px;
+    line-height:1.8;
 
-    nav ul{
+}
 
-        flex-direction:column;
-        align-items:center;
-        gap:20px;
+/* -----------------------------
+   TRILOGIA
+------------------------------*/
 
-    }
+.ebooks-grid{
 
-    .btn-menu{
+    grid-template-columns:1fr;
+    gap:35px;
 
-        display:none;
+}
 
-    }
+.ebook-card{
+
+    padding:30px;
+
+}
+
+.ebook-card img{
+
+    width:220px;
+    margin:auto auto 25px;
+
+}
+
+.ebook-card h3{
+
+    font-size:26px;
+
+}
+
+.ebook-card p{
+
+    font-size:17px;
+
+}
+
+/* -----------------------------
+   BIBLIOTECA
+------------------------------*/
+
+.categoria-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.categoria-card{
+
+    padding:30px;
+
+}
+
+/* -----------------------------
+   FERRAMENTAS
+------------------------------*/
+
+.tools-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.tool-card{
+
+    padding:30px;
+
+}
+
+.tool-card h3{
+
+    font-size:26px;
+
+}
+
+.tool-card p{
+
+    font-size:17px;
+
+}
+
+.btn-tool{
+
+    width:100%;
+    justify-content:center;
+
+}
+
+/* -----------------------------
+   PARCEIROS
+------------------------------*/
+
+.parceiros-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.parceiro-card{
+
+    padding:30px;
+
+}
+
+/* -----------------------------
+   CERTIFICADOS
+------------------------------*/
+
+.certificados-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.certificados-grid img{
+
+    height:auto;
+    max-height:420px;
+
+}
+
+/* -----------------------------
+   CARDS
+------------------------------*/
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+.card{
+
+    padding:30px;
+
+}
+
+.card h3{
+
+    font-size:24px;
+
+}
+
+.card p{
+
+    font-size:17px;
+
+}
+
+}
+/* ======================================================
+   CONSULTORIA • MENTORIA • FAQ • CTA • FOOTER
+====================================================== */
+
+@media (max-width:768px){
+
+/* ==========================
+   CONSULTORIA
+========================== */
+
+.consultoria-grid{
+
+    grid-template-columns:1fr;
+    gap:40px;
+    text-align:center;
+
+}
+
+.consultoria-imagem{
+
+    order:-1;
+
+}
+
+.consultoria-imagem img{
+
+    width:90%;
+    max-width:340px;
+    margin:auto;
+
+}
+
+.consultoria-texto h3{
+
+    font-size:30px;
+
+}
+
+.consultoria-texto p,
+.consultoria-texto li{
+
+    font-size:17px;
+
+}
+
+.consultoria-texto ul{
+
+    text-align:left;
+
+}
+
+/* ==========================
+   MENTORIA
+========================== */
+
+.mentoria-grid{
+
+    grid-template-columns:1fr;
+    gap:40px;
+
+}
+
+.mentoria-grid img{
+
+    width:90%;
+    max-width:340px;
+    margin:auto;
+
+}
+
+.cards-mentoria{
+
+    grid-template-columns:1fr;
+
+}
+
+.cards-mentoria div{
+
+    padding:25px;
+
+}
+
+/* ==========================
+   DEPOIMENTOS
+========================== */
+
+.depoimentos-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.depoimento{
+
+    padding:30px;
+
+}
+
+/* ==========================
+   FAQ
+========================== */
+
+.faq-container{
+
+    width:100%;
+
+}
+
+.faq-item{
+
+    padding:25px;
+
+}
+
+.faq-item h3{
+
+    font-size:22px;
+
+}
+
+.faq-item p{
+
+    font-size:17px;
+
+}
+
+/* ==========================
+   LEAD MAGNET
+========================== */
+
+.lead-box7{
+
+    padding:70px 0;
+
+}
+
+.lead-box7 h2{
+
+    font-size:30px;
+
+}
+
+.lead-box7 p{
+
+    font-size:17px;
+
+}
+
+.lead-beneficios{
+
+    grid-template-columns:1fr;
+
+}
+
+/* ==========================
+   CTA FINAL
+========================== */
+
+.cta-final{
+
+    padding:80px 0;
+
+}
+
+.cta-final h2{
+
+    font-size:34px;
+    line-height:42px;
+
+}
+
+.cta-final p{
+
+    font-size:18px;
+
+}
+
+.cta-final .hero-buttons{
+
+    flex-direction:column;
+    align-items:center;
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer-grid{
+
+    grid-template-columns:1fr;
+    gap:35px;
+    text-align:center;
+
+}
+
+.footer-grid ul{
+
+    padding:0;
+
+}
+
+.footer-grid li{
+
+    list-style:none;
+
+}
+
+.copyright{
+
+    font-size:14px;
+
+}
+
+}
+
+
+/* ======================================================
+   SMARTPHONES PEQUENOS
+====================================================== */
+
+@media (max-width:480px){
+
+.container{
+
+    width:94%;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+}
+
+.hero{
+
+    padding-top:120px;
+
+}
+
+.hero h1{
+
+    font-size:30px;
+    line-height:38px;
+
+}
+
+.hero h4{
+
+    font-size:14px;
+
+}
+
+.hero p{
+
+    font-size:16px;
+
+}
+
+.hero-image img{
+
+    max-width:260px;
+
+}
+
+.start-image img{
+
+    max-width:220px;
+
+}
+
+.historia-imagem img,
+.exp-image img,
+.consultoria-imagem img,
+.mentoria-grid img{
+
+    max-width:260px;
+
+}
+
+.hero-buttons a,
+.btn-primary,
+.btn-secondary,
+.btn-tool{
+
+    width:100%;
+
+}
+
+.titulo-secao h2,
+.sobre h2,
+.ebooks h2,
+.depoimentos h2,
+.cta-final h2{
+
+    font-size:28px;
+    line-height:36px;
+
+}
+
+p,
+.card p,
+.tool-card p,
+.ebook-card p{
+
+    font-size:16px;
+
+}
+
+.hero-numbers{
+
+    gap:15px;
+
+}
+
+.hero-numbers h2{
+
+    font-size:28px;
+
+}
+
+.hero-numbers span{
+
+    font-size:14px;
+
+}
 
 }
