@@ -386,10 +386,11 @@ html, body {
   max-width: 18cm;
   width: 100%;
   position: relative;
-  overflow: hidden;
-  box-shadow: 0 20pt 60pt rgba(0,0,0,0.8), 0 0 40pt rgba(212,255,0,0.15);
-  animation: modalUp 0.4s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-}
+  max-height:95vh;
+overflow-y:auto;
+-webkit-overflow-scrolling:touch;
+
+
 @keyframes modalUp {
   from { opacity: 0; transform: translateY(30pt) scale(0.95); }
   to { opacity: 1; transform: translateY(0) scale(1); }
@@ -2131,13 +2132,12 @@ html, body {
 
   function openLeadModal() {
     leadModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => inputName.focus(), 400);
+       setTimeout(() => inputName.focus(), 400);
   }
 
   function closeLeadModal() {
     leadModal.classList.remove('show');
-    document.body.style.overflow = '';
+    
   }
 
   // Máscara de telefone brasileiro
