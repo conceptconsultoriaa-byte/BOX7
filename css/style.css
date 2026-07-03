@@ -29,14 +29,17 @@ html{
    body{
 
 background:
-linear-gradient(rgba(0,0,0,.82),rgba(0,0,0,.82)),
-url("../img/background/carbono.webp");
+
+linear-gradient(rgba(8,8,8,.95),rgba(8,8,8,.95)),
+url("../img/BACKGROUND/carbono.webp");
 
 background-size:cover;
 
+background-position:center;
+
 background-attachment:fixed;
 
-background-position:center;
+color:#fff;
 
 
 }
@@ -3125,5 +3128,25 @@ margin-bottom:18px;
 font-size:42px;
 
 margin-bottom:15px;
+
+}.titulo-secao h2{
+
+color:#fff;
+
+}
+
+.titulo-secao p{
+
+color:#d5d5d5;
+
+}
+
+.subtitulo{
+
+color:#ff7a00;
+
+letter-spacing:4px;
+
+text-transform:uppercase;
 
 }
