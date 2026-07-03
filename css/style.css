@@ -2312,7 +2312,7 @@ margin-top:40px;
 .card,
 .categoria-card{
 
-background:#ffffff;
+background:rgba(18,18,18,.92);
 
 border-radius:18px;
 
@@ -2558,7 +2558,7 @@ background:#e10600;
 
 padding:90px 0;
 
-background:#ffffff;
+background:transparent;
 
 }
 
@@ -2567,7 +2567,7 @@ background:#ffffff;
 .consultoria-processo,
 .mentoria-processo{
 
-background:#f8f9fb;
+background:rgba(15,15,15,.82);
 
 }
 
@@ -3134,5 +3134,40 @@ color:#ff7a00;
 letter-spacing:4px;
 
 text-transform:uppercase;
+
+}
+/* =====================================================
+   FUNDO PREMIUM BIBLIOTECA BOX7
+===================================================== */
+
+.hero-biblioteca,
+.biblioteca-menu,
+.biblioteca-gratis,
+.biblioteca-premium,
+.biblioteca-tools,
+.biblioteca-downloads{
+
+    background:transparent !important;
+
+}
+
+.hero-biblioteca{
+
+    background:
+    linear-gradient(rgba(8,8,8,.82),rgba(8,8,8,.82)) !important;
+
+}
+
+body{
+
+    background:
+    linear-gradient(rgba(8,8,8,.92),rgba(8,8,8,.92)),
+    url("../img/BACKGROUND/carbono.webp");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
 
 }
