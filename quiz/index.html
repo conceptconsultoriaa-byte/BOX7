@@ -361,6 +361,7 @@ html, body {
 /* ============ MODAL DE CAPTURA DE LEAD ============ */
 .modal-overlay {
   display: none;
+  overflow-y:auto;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.88);
@@ -602,6 +603,141 @@ html, body {
   text-underline-offset: 2pt;
 }
 .modal-skip:hover { color: rgba(255,255,255,0.7); }
+
+/* ============ CUPOM DE DESCONTO PROGRESSIVO ============ */
+.coupon-block {
+  margin-top: 22pt;
+  padding: 22pt 20pt;
+  background: linear-gradient(135deg, rgba(212,255,0,0.15) 0%, rgba(0,0,0,0.7) 100%);
+  border: 2pt solid var(--lemon);
+  border-radius: 6pt;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10pt 30pt rgba(0,0,0,0.5), 0 0 30pt rgba(212,255,0,0.2);
+}
+.coupon-block::before {
+  content:'';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4pt;
+  background: linear-gradient(90deg, var(--red), var(--lemon), var(--red));
+}
+.coupon-block::after {
+  content: '🎁';
+  position: absolute;
+  top: -15pt; right: 18pt;
+  font-size: 100pt;
+  opacity: 0.06;
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+.coupon-tag {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700; font-size: 8pt;
+  color: #000;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 4pt 10pt 4pt 12pt;
+  border-left: 2pt solid var(--red);
+  background: var(--lemon);
+  margin-bottom: 12pt;
+}
+.coupon-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 28pt;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 6pt;
+  transform: skew(-4deg);
+  display: inline-block;
+}
+.coupon-headline .off {
+  color: transparent;
+  -webkit-text-stroke: 2pt var(--lemon);
+}
+.coupon-subhl {
+  font-family: 'Manrope', sans-serif;
+  font-size: 10pt;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 14pt;
+  line-height: 1.5;
+}
+.coupon-code-wrap {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 14pt 0 12pt;
+  border-radius: 4pt;
+  overflow: hidden;
+  border: 1.5pt dashed var(--lemon);
+  background: rgba(0,0,0,0.5);
+}
+.coupon-code {
+  flex: 1;
+  padding: 16pt 20pt;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 22pt;
+  color: var(--lemon);
+  letter-spacing: 0.15em;
+  text-align: center;
+  text-shadow: 0 0 15pt rgba(212,255,0,0.4);
+}
+.coupon-copy-btn {
+  padding: 16pt 20pt;
+  background: var(--lemon);
+  color: #000;
+  border: none;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 12pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.coupon-copy-btn:hover {
+  background: var(--lemon-glow);
+}
+.coupon-copy-btn.copied {
+  background: #25D366;
+  color: #FFF;
+}
+.coupon-countdown {
+  margin-top: 12pt;
+  padding: 10pt 14pt;
+  background: rgba(255,31,31,0.1);
+  border: 1pt solid rgba(255,31,31,0.4);
+  border-radius: 3pt;
+  display: flex;
+  align-items: center;
+  gap: 10pt;
+}
+.coupon-countdown-icon {
+  font-size: 16pt;
+}
+.coupon-countdown-txt {
+  flex: 1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9pt;
+  color: rgba(255,255,255,0.9);
+  font-weight: 600;
+}
+.coupon-countdown-time {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 14pt;
+  color: var(--red);
+  letter-spacing: 0.06em;
+  text-shadow: 0 0 8pt rgba(255,31,31,0.5);
+}
 
 /* ============ BOTÃO WHATSAPP SHARE ============ */
 .btn-share-wa {
@@ -1015,6 +1151,11 @@ html, body {
 @media print {
   body { background: var(--white); }
   .a4-container { box-shadow: none; }
+}
+
+@media (max-width:768px){
+.modal-overlay{align-items:flex-start;padding:10px;overflow-y:auto;}
+.modal-box{width:95%!important;max-height:95vh!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch;padding:20px!important;margin:10px auto!important;}
 }
 </style>
 </head>
@@ -1854,9 +1995,31 @@ html, body {
         </div>
       </div>
 
+      <!-- CUPOM DE DESCONTO PROGRESSIVO -->
+      <div class="coupon-block" id="couponBlock">
+        <div class="coupon-tag">🎁 SEU DESCONTO EXCLUSIVO</div>
+        <div class="coupon-headline">
+          <span id="couponPercent">40%</span> <span class="off">OFF</span> na Biblioteca BOX7
+        </div>
+        <div class="coupon-subhl" id="couponSubhl">
+          Baseado no seu diagnóstico, liberamos um desconto especial para você começar a transformar sua oficina AGORA.
+        </div>
+        <div class="coupon-code-wrap">
+          <div class="coupon-code" id="couponCode">START40</div>
+          <button class="coupon-copy-btn" id="couponCopyBtn" onclick="copyCoupon()">
+            📋 COPIAR
+          </button>
+        </div>
+        <div class="coupon-countdown">
+          <span class="coupon-countdown-icon">⏰</span>
+          <span class="coupon-countdown-txt">Este cupom expira em:</span>
+          <span class="coupon-countdown-time" id="couponCountdown">6d 23h 59m</span>
+        </div>
+      </div>
+
       <!-- CTA principal (site) -->
-      <a class="cta-final" href="https://conceptconsultoriaa-byte.github.io/BOX7/" target="_blank" rel="noopener">
-        QUERO <span class="em">TRANSFORMAR MINHA OFICINA</span> · CONHECER A BIBLIOTECA →
+      <a class="cta-final" id="ctaFinal" href="https://conceptconsultoriaa-byte.github.io/BOX7/" target="_blank" rel="noopener">
+        QUERO <span class="em">USAR MEU CUPOM</span> · IR PARA A BIBLIOTECA →
       </a>
 
       <!-- Botão de compartilhar no WhatsApp -->
@@ -1974,7 +2137,8 @@ html, body {
 
   function openLeadModal() {
     leadModal.classList.add('show');
-    document.body.style.overflow = 'hidden';
+    window.scrollTo(0,0);
+    document.body.style.overflow = 'auto';
     setTimeout(() => inputName.focus(), 400);
   }
 
@@ -2061,15 +2225,62 @@ html, body {
       localStorage.setItem('box7_last_lead', JSON.stringify(leadData));
     } catch (err) { /* localStorage indisponível — seguir sem erro */ }
 
-    // ============ INTEGRAÇÃO COM API/WEBHOOK ============
-    // TODO (desenvolvedor): descomente e configure o webhook
-    // Exemplos: Zapier, RD Station, ActiveCampaign, Google Sheets, Make.com
+    // ============ INTEGRAÇÃO COM WEBHOOK / GOOGLE APPS SCRIPT ============
+    // 🔧 DESENVOLVEDOR: Cole aqui a URL do seu Google Apps Script Web App
+    // Ver arquivo GOOGLE_APPS_SCRIPT.gs no pacote com instruções completas
+    const WEBHOOK_URL = 'COLE_AQUI_A_URL_DO_APPS_SCRIPT_WEB_APP';
+
+    if (WEBHOOK_URL && !WEBHOOK_URL.startsWith('COLE_')) {
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',  // Google Apps Script requer no-cors
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
+      }).catch(err => console.warn('Webhook failed (não crítico, lead salvo localmente):', err));
+    }
+
+    // 🔌 HOOKS ALTERNATIVOS · serviços profissionais
+    // Descomente e configure quando migrar para RD Station / Mailchimp / ActiveCampaign
     /*
-    fetch('https://SEU-WEBHOOK-AQUI.com/leads', {
+    // RD Station Marketing
+    fetch('https://api.rd.services/marketing/conversions?api_key=SUA_API_KEY', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(leadData)
-    }).catch(err => console.warn('Lead capture failed:', err));
+      body: JSON.stringify({
+        event_type: 'CONVERSION',
+        event_family: 'CDP',
+        payload: {
+          conversion_identifier: 'quiz-start-box7',
+          email: leadData.email,
+          name: leadData.name,
+          mobile_phone: leadData.phone,
+          city: leadData.city,
+          cf_score: leadData.score,
+          cf_zona: leadData.zone,
+          cf_cupom: leadData.coupon
+        }
+      })
+    });
+
+    // ActiveCampaign
+    fetch('https://SUA-CONTA.api-us1.com/api/3/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Api-Token': 'SUA_API_TOKEN'
+      },
+      body: JSON.stringify({
+        contact: {
+          email: leadData.email,
+          firstName: leadData.name,
+          phone: leadData.phone,
+          fieldValues: [
+            { field: '1', value: leadData.score },
+            { field: '2', value: leadData.zone }
+          ]
+        }
+      })
+    });
     */
 
     // Enviar também como evento GA4 / Meta Pixel (se instalados)
@@ -2178,6 +2389,79 @@ html, body {
     document.getElementById('recommendDesc').textContent = rec.desc;
     document.getElementById('recommendCover').src = rec.cover;
 
+    // ============ CUPOM DE DESCONTO PROGRESSIVO ============
+    // Tabela de cupons por zona (padrão aprovado pelo usuário)
+    const COUPONS = {
+      'TRANQUILO':   { pct: 10, code: 'START10' },
+      'ATENÇÃO':     { pct: 15, code: 'START15' },
+      'ALERTA':      { pct: 20, code: 'START20' },
+      'CRÍTICO':     { pct: 30, code: 'START30' },
+      'PREOCUPANTE': { pct: 40, code: 'START40' }
+    };
+    const coupon = COUPONS[zone.label] || COUPONS['ALERTA'];
+
+    document.getElementById('couponPercent').textContent = coupon.pct + '%';
+    document.getElementById('couponCode').textContent = coupon.code;
+
+    // Salvar cupom nos dados do lead
+    if (leadData) {
+      leadData.coupon = coupon.code;
+      leadData.discount = coupon.pct;
+      leadData.zone = zone.label;
+      try {
+        localStorage.setItem('box7_last_lead', JSON.stringify(leadData));
+      } catch(e) {}
+    }
+
+    // Contador regressivo de 7 dias (persistente via localStorage)
+    let expiryKey = 'box7_coupon_expiry_' + coupon.code;
+    let expiry = localStorage.getItem(expiryKey);
+    if (!expiry) {
+      // Criar validade: 7 dias a partir de agora
+      const now = new Date();
+      const expiryDate = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
+      expiry = expiryDate.toISOString();
+      try { localStorage.setItem(expiryKey, expiry); } catch(e) {}
+    }
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const expiryTime = new Date(expiry).getTime();
+      const diff = expiryTime - now;
+
+      const cdEl = document.getElementById('couponCountdown');
+      if (!cdEl) return;
+
+      if (diff <= 0) {
+        cdEl.textContent = 'EXPIRADO';
+        cdEl.style.color = 'rgba(255,255,255,0.4)';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      let txt = '';
+      if (days > 0) txt = days + 'd ' + hours + 'h ' + minutes + 'm';
+      else if (hours > 0) txt = hours + 'h ' + minutes + 'm ' + seconds + 's';
+      else txt = minutes + 'm ' + seconds + 's';
+      cdEl.textContent = txt;
+    }
+    updateCountdown();
+    if (window._couponInterval) clearInterval(window._couponInterval);
+    window._couponInterval = setInterval(updateCountdown, 1000);
+
+    // Atualizar CTA final com o link do site + query param do cupom
+    // 🔧 DESENVOLVEDOR: Se você hospedar obrigado.html no mesmo domínio, troque a URL abaixo
+    // Ex: '/obrigado.html?cupom=' + coupon.code + '&score=' + score + '&zona=' + encodeURIComponent(zone.label)
+    const ctaFinal = document.getElementById('ctaFinal');
+    if (ctaFinal) {
+      const thankYouURL = 'https://conceptconsultoriaa-byte.github.io/BOX7/?cupom=' + coupon.code + '&score=' + score + '&zona=' + encodeURIComponent(zone.label);
+      ctaFinal.href = thankYouURL;
+    }
+
     // ============ CONFIGURAR BOTÃO COMPARTILHAR NO WHATSAPP ============
     const btnShareWA = document.getElementById('btnShareWA');
     const siteURL = 'https://conceptconsultoriaa-byte.github.io/BOX7/';
@@ -2218,6 +2502,47 @@ html, body {
     setTimeout(() => {
       resultPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 200);
+  }
+
+  // Copiar cupom para clipboard
+  window.copyCoupon = function() {
+    const code = document.getElementById('couponCode').textContent;
+    const btn = document.getElementById('couponCopyBtn');
+    // Tenta clipboard API moderna
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '✓ COPIADO!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = '📋 COPIAR';
+          btn.classList.remove('copied');
+        }, 2500);
+      }).catch(() => fallbackCopy(code, btn));
+    } else {
+      fallbackCopy(code, btn);
+    }
+    // Analytics
+    if (typeof gtag === 'function') {
+      gtag('event', 'quiz_coupon_copied', { code: code });
+    }
+  };
+  function fallbackCopy(text, btn) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      btn.textContent = '✓ COPIADO!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = '📋 COPIAR';
+        btn.classList.remove('copied');
+      }, 2500);
+    } catch (e) { /* silent */ }
+    document.body.removeChild(ta);
   }
 
   // Restart
