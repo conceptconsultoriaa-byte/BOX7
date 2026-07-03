@@ -3171,3 +3171,18 @@ body{
     background-attachment:fixed;
 
 }
+/* TESTE DEFINITIVO DO FUNDO */
+
+html,
+body{
+    background: url("../img/BACKGROUND/carbono.webp") center center / cover fixed !important;
+}
+
+.hero-biblioteca,
+.biblioteca-menu,
+.biblioteca-gratis,
+.biblioteca-premium,
+.biblioteca-tools,
+.biblioteca-downloads{
+    background: transparent !important;
+}
