@@ -397,7 +397,14 @@ html, body {
 
 overflow-y:auto;
 
+overflow-x:hidden;
+
 -webkit-overflow-scrolling:touch;
+box-shadow: 0 20pt 60pt rgba(0,0,0,.8),
+            0 0 40pt rgba(212,255,0,.15);
+
+animation: modalUp .4s cubic-bezier(.2,.9,.3,1.2);
+}
 
 
 @keyframes modalUp {
@@ -1144,26 +1151,114 @@ overflow-y:auto;
 .copyright .yl { color: var(--lemon); }
 
 /* ============ RESPONSIVE ============ */
-@media (max-width: 800px) {
-  .a4-container { width: 100%; min-height: auto; }
-  .content { padding: 4.5cm 5% 5% 5%; }
-  .hero-title { font-size: 48pt; }
-  .hero-subtitle { font-size: 12pt; }
-  .q-text { font-size: 12pt; }
-  .footer-grid { grid-template-columns: 1fr; }
-  .result-score { font-size: 60pt; }
-  .result-score-block { flex-direction: column; align-items: flex-start; gap: 8pt; }
-  .result-diag-lbl { font-size: 24pt; }
-  .recommend { grid-template-columns: 1fr; text-align: center; }
-  .recommend-cover { margin: 0 auto; width: 100pt; }
+@media (max-width:800px){
+
+    .a4-container{
+        width:100%;
+        min-height:auto;
+    }
+
+    .content{
+        padding:4.5cm 5% 5%;
+    }
+
+    .hero-title{
+        font-size:48pt;
+    }
+
+    .hero-subtitle{
+        font-size:12pt;
+    }
+
+    .q-text{
+        font-size:12pt;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .result-score{
+        font-size:60pt;
+    }
+
+    .result-score-block{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:8pt;
+    }
+
+    .result-diag-lbl{
+        font-size:24pt;
+    }
+
+    .recommend{
+        display:block;
+        text-align:center;
+    }
+
+    .recommend-cover,
+    .recommend img{
+        display:block;
+        width:140px;
+        max-width:100%;
+        height:auto;
+        margin:20px auto;
+    }
+
+    .zones-bar{
+        width:100%;
+    }
+
+    .result-panel{
+        width:100%;
+        max-width:100%;
+        padding:16px;
+        overflow:hidden;
+        box-sizing:border-box;
+    }
+
+    .result-panel img{
+        display:block;
+        max-width:100%;
+        height:auto;
+    }
+
+    .footer-qr{
+        width:120px;
+        height:120px;
+        margin:20px auto;
+    }
+
+    .footer-qr img{
+        display:block;
+        width:100%;
+        height:100%;
+        object-fit:contain;
+    }
+
+    .cta-final{
+        font-size:14px;
+        padding:16px;
+    }
+
+    .btn-share-wa{
+        width:100%;
+        text-align:center;
+    }
+
+
 }
 
-@media print {
+
+@media print{
   body { background: var(--white); }
   .a4-container { box-shadow: none; }
 }
 </style>
+
 </head>
+
 <body>
 
 <div class="a4-container">
@@ -2564,4 +2659,5 @@ overflow-y:auto;
 
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
+
 </html>
