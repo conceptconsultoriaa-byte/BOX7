@@ -2490,11 +2490,11 @@ animation: modalUp .4s cubic-bezier(.2,.9,.3,1.2);
     // ============ CUPOM DE DESCONTO PROGRESSIVO ============
     // Tabela de cupons por zona (padrão aprovado pelo usuário)
     const COUPONS = {
-      'TRANQUILO':   { pct: 0, code: 'START10' },
-      'ATENÇÃO':     { pct: 10, code: 'START15' },
-      'ALERTA':      { pct: 15, code: 'START20' },
-      'CRÍTICO':     { pct: 20, code: 'START30' },
-      'PREOCUPANTE': { pct: 20, code: 'START40' }
+      'TRANQUILO':   { pct: 0, code: 'START0' },
+      'ATENÇÃO':     { pct: 10, code: 'START10' },
+      'ALERTA':      { pct: 15, code: 'START15' },
+      'CRÍTICO':     { pct: 20, code: 'START20' },
+      'PREOCUPANTE': { pct: 20, code: 'START20' }
     }
     const coupon = COUPONS[zone.label] || COUPONS['ALERTA'];
 
